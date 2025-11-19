@@ -123,13 +123,13 @@ document.addEventListener("DOMContentLoaded", () => {
         options: { ...commonOptions, plugins: { legend: { position: 'bottom' } } }
     });
 
-    // --- CHART 3: UNIQUE MEMBERS BY GENDER (Doughnut) ---
+    // --- CHART 3: CLASS MEMBERS BY GENDER (Doughnut) ---
     new Chart(document.getElementById('membersGenderChart'), {
         type: 'doughnut',
         data: {
-            labels: ['Sievietes', 'Vīrieši', 'Citi'],
+            labels: ['Sievietes', 'Vīrieši'],
             datasets: [{
-                data: [620, 548, 8],
+                data: [10120, 1280],
                 backgroundColor: [colorSecondary, colorPrimary, '#ffce56'],
                 borderWidth: 1
             }]
@@ -283,6 +283,46 @@ document.addEventListener("DOMContentLoaded", () => {
                     beginAtZero: true
                 }
             }
+        }
+    });
+
+    // --- NEW CHART 10: TOP 10 MEMBERS BY ENTRIES (Horizontal Bar) ---
+    new Chart(document.getElementById('topMembersEntriesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Viktorija Springe', 'Marina Tujeva', 'Davis Lismanis', 'Matiass Ābeltiņš', 'Markuss Menģelis', 'Felikss Kozlovskis', 'Olegs Larins', 'Evija Opaļko', 'Svetlana Goroškova', 'Olga Žemčugova'],
+            datasets: [{
+                label: 'Ieejas',
+                data: [272, 252, 236, 224, 222, 212, 200, 195, 188, 188],
+                backgroundColor: 'rgba(54, 162, 235, 0.7)', // Blue
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            ...commonOptions,
+            indexAxis: 'y', // Horizontal bars
+            plugins: { legend: { display: false } }
+        }
+    });
+
+    // --- NEW CHART 11: TOP 10 MEMBERS BY CLASS ATTENDANCE (Horizontal Bar) ---
+    new Chart(document.getElementById('topMembersClassesChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Marina Tujeva', 'Olga Žemčugova', 'Kristine Pazare', 'Viktorija Springe', 'Ekaterina Brale', 'Kristīne Matačina', 'Līga Vilkaplatere', 'Mārīte Kolberga', 'Elīna Veinberga', 'Sanita Freiberga'],
+            datasets: [{
+                label: 'Nodarbības',
+                data: [246, 224, 181, 178, 177, 175, 158, 156, 152, 151],
+                backgroundColor: 'rgba(153, 102, 255, 0.7)', // Orange
+                borderColor: 'rgba(153, 102, 255, 0.7)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            ...commonOptions,
+            indexAxis: 'y', // Horizontal bars
+            plugins: { legend: { display: false } }
         }
     });
 
